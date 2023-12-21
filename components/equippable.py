@@ -17,10 +17,12 @@ class Equippable(BaseComponent):
         equipment_type: EquipmentType,
         power_bonus: int = 0,
         defense_bonus: int = 0,
+        attack_bonus: int = 0,
     ):
         self.equipment_type = equipment_type
 
         self.power_bonus = power_bonus
+        self.attack_bonus = attack_bonus
         self.defense_bonus = defense_bonus
 
 
