@@ -54,11 +54,12 @@ for armor in targets_armor_list:
             elec_res += row[0, "elec_resist"]
             fire_res += row[0, "fire_resist"]
         num_mats = len(armor_mats)
-        bash_res /= num_mats*thickness
-        cut_res /= num_mats*thickness
-        acid_res /= num_mats*thickness
-        elec_res /= num_mats*thickness
-        fire_res /= num_mats*thickness
+        bash_res /= round(num_mats*thickness)
+        cut_res /= round(num_mats*thickness)
+        
+        armor_item_df.at[index,"elec_res"] = round(elec_res/num_mats*thickness)
+        armor_item_df.at[index,"fire_res"] = round(fire_res/num_mats*thickness)
+        armor_item_df.at[index,"acid_res"] = round(acid_res/num_mats*thickness)
 
         #PROTECTION (reduce dismemberment)
         protection_val = round((2*cut_res+bash_res)*coverage/16)
